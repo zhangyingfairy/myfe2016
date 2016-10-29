@@ -51,9 +51,24 @@
             <li>html</li>
             <li>css</li>
         </ul>
-        <div id="content">
-        123123123
+        <div id ="content">
+        1111111
         </div>
-    </div>
+    <script>
+        var arr = [1111111,2222222,3333333];
+        var oMenu = document.getElementById('menu');
+        var aLi = oMenu.getElementsByTagName('li');
+        var oCentent = document.getElementById('content');
+        var last =0;
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index = i;
+            aLi[i].onclick=function(){
+                aLi[last].className='';
+                this.className = 'selected';
+                last = this.index;
+                oCentent.innerHTML = arr[this.index];
+            }
+        }
+    </script>
 </body>
 </html>
