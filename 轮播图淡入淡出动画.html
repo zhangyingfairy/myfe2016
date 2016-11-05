@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图-淡入淡出</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul, ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        img{
+            border: 0;
+        }
+        #container img{
+            width: 680px;
+            height: 344px;
+        }
+
+        #container{
+            width: 680px;
+            height: 344px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #tab{
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+            z-index: 9999;
+        }
+        #tab li{
+            width: 20px;
+            height: 20px;
+            float: left;
+            background: #000000;
+            color: #fff;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        #tab .selected{
+            background: orange;
+        }
+        #content {
+            position: relative;
+        }
+        #content img{
+           position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #arrow{
+            position: absolute;
+            left: 20px;
+            bottom: 10px;
+            z-index: 9999;
+        }
+        #arrow span{
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="tab">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="content">
+        <img src="img/1.jpg" alt=""/>
+        <img src="img/2.jpg" alt=""/>
+        <img src="img/3.jpg" alt=""/>
+        <img src="img/4.jpg" alt=""/>
+    </div>
+    <div id="arrow">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+</div>
+<script src="jslib.js"></script>
+<script>
+    var oContainer = document.getElementById('container');
+    var oTab = document.getElementById('tab');
+    var aLi = oTab.getElementsByTagName('li');
+    var oContent = document.getElementById('content');
+    var aImg = oContent.getElementsByTagName('img');
+    var oPrev = document.getElementById('prev');
+    var oNext = document.getElementById('next');
+    var zIndex = 4;
+
+    for(var i=0; i<aLi.length; i++){//给li绑事件，页面加载就执行
+        aImg[i].style.zIndex = aImg.length - i ;//图一为4，图二为3......
+        aLi[i].index = i;
+        aLi[i].onmouseover = function(){
+            for(var i= 0;i<aLi.length;i++){
+                aLi[i].className = '';
+            }
+         this.className = 'selected';
+
+         var oImg = aImg[this.index];
+         oImg.style.opacity = 0;
+         oImg.style.filter = 'alpha(opacity=0)';
+         oImg.style.zIndex = ++zIndex;
+         animate(oImg,{opacity: 100});
+        };
+    };
+
+
+</script>
+
+</body>
+</html>
