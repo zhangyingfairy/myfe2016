@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul, ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        img{
+            border: 0;
+        }
+        #big-img {
+            width: 700px;
+            height: 350px;
+            overflow: hidden;
+        }
+        #big-img img{
+            width: 715px;
+            height: 350px;
+            overflow: hidden;
+        }
+        #big-img{
+            width: 715px;
+            height: 350px;
+            overflow: hidden;
+        }
+        #container{
+            width: 715px;
+            height:500px ;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #small-img img{
+            width: 167px;
+            height: 120px;
+            float: left;
+            margin: 10px 0 10px 10px;
+        }
+        #small-img{
+            width: 2000px;
+            height: 120px;
+            overflow: hidden;
+            position: absolute;
+            left: 0px;
+            top: 350px;
+        }
+        #info {
+            background: black;
+            height: 30px;
+            width: 700px;
+            opacity: 0.5;
+            position: absolute;
+            z-index: 2;
+            left: 0px;
+            top: 320px;
+        }
+        #prev{
+            position: absolute;
+            background-image:url(imgs/btn.gif );
+            background-repeat: no-repeat;
+            background-position: -30px 60px
+            left:50px;
+            top: 175px;
+        }
+        #next{
+            position: absolute;
+            left:650px;
+            top: 175px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div id="container">
+    <div id="big-img">
+        <img src="imgs/1.jpg" alt="" style="z-index: 8">
+        <img src="imgs/2.jpg" alt="" style="z-index: 8">
+        <img src="imgs/3.jpg" alt="" style="z-index: 8">
+        <img src="imgs/4.jpg" alt="" style="z-index: 8">
+        <img src="imgs/5.jpg" alt="" style="z-index: 8">
+        <img src="imgs/6.jpg" alt="" style="z-index: 8">
+        <img src="imgs/7.jpg" alt="" style="z-index: 8">
+        <img src="imgs/8.jpg" alt="" style="z-index: 8">
+        <span id="prev"></span>
+        <span id="next"></span>
+        <div id="info">
+            <span id="current-page">1</span>
+            <span id="total-page">/8</span>
+        </div>
+    </div>
+    <div id="small-img">
+        <img src="imgs/1.jpg" alt="">
+        <img src="imgs/2.jpg" alt="">
+        <img src="imgs/3.jpg" alt="">
+        <img src="imgs/4.jpg" alt="">
+        <img src="imgs/5.jpg" alt="">
+        <img src="imgs/6.jpg" alt="">
+        <img src="imgs/7.jpg" alt="">
+        <img src="imgs/8.jpg" alt="">
+    </div>
+</div>
+<script>
+    var ocontainer = document.getElementById("container")
+    var oPrev = document.getElementById("prev");
+    var oNext = document.getElementById("next");
+
+</script>
+</body>
+</html>
